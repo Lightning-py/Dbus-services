@@ -1,4 +1,3 @@
-
 project(DBUSServices)
 
 # Libraries
@@ -40,4 +39,9 @@ target_include_directories(PermissionService PUBLIC ${PERMISSION_SERVICE_HEADERS
 target_link_libraries(PermissionService PRIVATE SDBusCpp::sdbus-c++ sqlite3)
 
 
+# SystemTimeService
+# Service
+add_executable(SystemTimeService ${SYSTEMTIME_SERVICE_SOURCES}/main.cpp)
+target_include_directories(SystemTimeService PUBLIC ${SYSTEMTIME_SERVICE_HEADERS} ${PERMISSION_SERVICE_CLIENT_HEADERS})
+target_link_libraries(SystemTimeService PRIVATE SDBusCpp::sdbus-c++)
 
