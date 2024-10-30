@@ -1,7 +1,3 @@
-//
-// Created by sergey on 29.10.24.
-//
-
 #ifndef SYSTEMTIMESERVICE_H
 #define SYSTEMTIMESERVICE_H
 
@@ -14,7 +10,6 @@
 #include <fstream>
 #include <iostream>
 #include <string>
-#include <vector>
 
 #include "PermissionClient.h"
 #include "time_adaptor.h"

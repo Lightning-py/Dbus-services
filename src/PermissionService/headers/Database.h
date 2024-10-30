@@ -15,23 +15,6 @@ class AppPermissionsDB
     std::string DATABASE_NAME;
     std::string TABLE_NAME;
 
-    static int callback(void *data, int argc, char **argv, char **azColName)
-    {
-        auto result =
-            static_cast<std::vector<std::pair<std::string, std::string>> *>(
-                data);
-        result->emplace_back(argv[0] ? argv[0] : "", argv[1] ? argv[1] : "");
-        return 0;
-    }
-
-    static int callback_exists(void *data, int argc, char **argv,
-                               char **azColName)
-    {
-        bool *exists = (bool *) data;
-        *exists = true;
-        return 0;
-    }
-
    public:
     explicit AppPermissionsDB(const std::string &dbName,
                               std::string &&tableName = "app_permissions")
@@ -63,7 +46,7 @@ class AppPermissionsDB
                    const std::vector<int> &permissions)
     {
         std::string permStr;
-        for (int i = 0; i < permissions.size(); i++) {
+        for (size_t i = 0; i < permissions.size(); i++) {
             permStr += std::to_string(permissions[i]);
             if (i != permissions.size() - 1) permStr += " ";
         }

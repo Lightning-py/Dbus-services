@@ -1,6 +1,6 @@
 #include "../headers/SystemTimeService.h"
 
-int main(int argc, char *argv[])
+int main()
 {
     sdbus::ServiceName serviceName{"com.system.time"};
     auto connection = sdbus::createBusConnection(serviceName);

@@ -20,7 +20,7 @@ void printDateTimeFromTimestamp(std::time_t timestamp) {
     std::cout << "Date and time: " << std::put_time(ptm, "%Y-%m-%d %H:%M:%S") << std::endl;
 }
 
-int main(int argc, char *argv[])
+int main()
 {
     sdbus::ServiceName destination{"com.system.time"};
     sdbus::ObjectPath objectPath{"/com/system/time"};

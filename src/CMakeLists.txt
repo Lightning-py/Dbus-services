@@ -6,6 +6,8 @@ project(DBUSServices)
 find_package(sdbus-c++ REQUIRED)
 find_package(SQLite3 REQUIRED)
 
+# Compile flags
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -Werror")
 
 # Variables
 
@@ -33,11 +35,8 @@ set(SYSTEMTIME_SERVICE_CLIENT_DIR SystemTimeServiceClient)
 set(SYSTEMTIME_SERVICE_CLIENT_HEADERS ${SYSTEMTIME_SERVICE_CLIENT_DIR}/headers)
 
 
-
 # Application
 set(APPLICATION_SOURCES Application/main.cpp)
-
-
 
 # Executables
 # PermissionService

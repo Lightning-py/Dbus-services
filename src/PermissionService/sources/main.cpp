@@ -1,6 +1,6 @@
 #include "PermissionService.h"
 
-int main(int argc, char *argv[])
+int main()
 {
     sdbus::ServiceName serviceName{"com.system.permissions"};
     auto connection = sdbus::createBusConnection(serviceName);
