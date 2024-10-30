@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<node name="/com/system/permissions">
+    <interface name="com.system.permissions">
+        <method name="RequestPermission">
+            <arg type="i" name="PermissionEnumCode" direction="in" />
+        </method>
+        
+        <method name="CheckApplicationHasPermission">
+            <arg type="s" name="ApplicationExecPath" direction="in" />
+            <arg type="i" name="PermissionEnumCode" direction="in" />
+            <arg type="b" name="answer" direction="out" />
+        </method>
+    </interface>
+</node>

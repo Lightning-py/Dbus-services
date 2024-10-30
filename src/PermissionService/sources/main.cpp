@@ -1,0 +1,17 @@
+#include "PermissionService.h"
+
+int main(int argc, char *argv[])
+{
+    sdbus::ServiceName serviceName{"com.system.permissions"};
+    auto connection = sdbus::createBusConnection(serviceName);
+
+    sdbus::ObjectPath objectPath{"/com/system/permissions"};
+
+    try {
+        PermissionManager manager(*connection, std::move(objectPath), "log.txt",
+                                  "database.db");
+        connection->enterEventLoop();
+    } catch (const std::exception &e) {
+        std::cerr << e.what() << '\n';
+    }
+}
