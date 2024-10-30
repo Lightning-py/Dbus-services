@@ -11,7 +11,8 @@ class SystemTimeServiceClient
    public:
     SystemTimeServiceClient(sdbus::ServiceName destination,
                             sdbus::ObjectPath objectPath)
-        : ProxyInterfaces(std::move(destination), std::move(objectPath))
+        : ProxyInterfaces(sdbus::createSessionBusConnection(),
+                          std::move(destination), std::move(objectPath))
     {
         registerProxy();
     }

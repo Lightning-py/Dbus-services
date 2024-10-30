@@ -3,7 +3,7 @@
 int main()
 {
     sdbus::ServiceName serviceName{"com.system.time"};
-    auto connection = sdbus::createBusConnection(serviceName);
+    auto connection = sdbus::createSessionBusConnection(serviceName);
 
     sdbus::ObjectPath objectPath{"/com/system/time"};
 
