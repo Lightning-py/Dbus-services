@@ -15,6 +15,9 @@ set(PERMISSION_SERVICE_HEADERS ${PERMISSION_SERVICE_DIR}/headers)
 set(PERMISSION_SERVICE_SOURCES ${PERMISSION_SERVICE_DIR}/sources)
 
 
+# Client
+set(SYSTEMTIME_SERVICE_CLIENT_DIR SystemTimeServiceClient)
+set(SYSTEMTIME_SERVICE_CLIENT_HEADERS ${SYSTEMTIME_SERVICE_CLIENT_DIR}/headers)
 
 
 # Executables
@@ -23,4 +26,6 @@ set(PERMISSION_SERVICE_SOURCES ${PERMISSION_SERVICE_DIR}/sources)
 add_executable(PermissionService ${PERMISSION_SERVICE_SOURCES}/main.cpp)
 target_include_directories(PermissionService PUBLIC ${PERMISSION_SERVICE_HEADERS})
 target_link_libraries(PermissionService PRIVATE SDBusCpp::sdbus-c++ sqlite3)
+
+
 
