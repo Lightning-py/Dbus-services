@@ -1,0 +1,10 @@
+.idea/
+.vscode/
+sdbus-cpp
+commands.sh
+build/
+cmake-build-debug/
+lib/
+task-1/
+cmake-build-debug/
+cmake-build/

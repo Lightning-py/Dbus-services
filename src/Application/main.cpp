@@ -1,6 +1,6 @@
-#include <iomanip>
 #include <unistd.h>
 
+#include <iomanip>
 #include <iostream>
 
 #include "PermissionClient.h"
@@ -15,9 +15,11 @@ void requestPermission()
     permissionclient.RequestPermission(0);
 }
 
-void printDateTimeFromTimestamp(std::time_t timestamp) {
-    std::tm* ptm = std::localtime(&timestamp);
-    std::cout << "Date and time: " << std::put_time(ptm, "%Y-%m-%d %H:%M:%S") << std::endl;
+void printDateTimeFromTimestamp(std::time_t timestamp)
+{
+    std::tm *ptm = std::localtime(&timestamp);
+    std::cout << "Date and time: " << std::put_time(ptm, "%Y-%m-%d %H:%M:%S")
+              << std::endl;
 }
 
 int main()
@@ -48,7 +50,8 @@ int main()
                 std::cout << "Error: " << e.what() << std::endl;
             }
         } else {
-            std::cout << "Some kind of dbus error: " << error.getName() << std::endl;
+            std::cout << "Some kind of dbus error: " << error.getName()
+                      << std::endl;
         }
     } catch (const std::exception &e) {
         std::cout << "Error: " << e.what() << std::endl;
