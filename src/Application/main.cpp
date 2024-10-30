@@ -1,3 +1,4 @@
+#include <iomanip>
 #include <unistd.h>
 
 #include <iostream>
@@ -14,6 +15,11 @@ void requestPermission()
     permissionclient.RequestPermission(0);
 }
 
+void printDateTimeFromTimestamp(std::time_t timestamp) {
+    std::tm* ptm = std::localtime(&timestamp);
+    std::cout << "Date and time: " << std::put_time(ptm, "%Y-%m-%d %H:%M:%S") << std::endl;
+}
+
 int main(int argc, char *argv[])
 {
     sdbus::ServiceName destination{"com.system.time"};
@@ -23,7 +29,7 @@ int main(int argc, char *argv[])
 
     try {
         uint64_t result = client.GetSystemTime();
-        std::cout << result << std::endl;
+        printDateTimeFromTimestamp(result);
     } catch (const sdbus::Error &error) {
         if (error.getName() == "com.system.UnauthorizedAccess") {
             std::cerr << "Access denied!" << std::endl;
@@ -37,13 +43,12 @@ int main(int argc, char *argv[])
                       << std::endl;
             try {
                 uint64_t result = client.GetSystemTime();
-                std::cout << result << std::endl;
+                printDateTimeFromTimestamp(result);
             } catch (const std::exception &e) {
                 std::cout << "Error: " << e.what() << std::endl;
             }
         } else {
-            std::cout << "Some kind of dbus error: " << error.getName()
-                      << std::endl;
+            std::cout << "Some kind of dbus error: " << error.getName() << std::endl;
         }
     } catch (const std::exception &e) {
         std::cout << "Error: " << e.what() << std::endl;

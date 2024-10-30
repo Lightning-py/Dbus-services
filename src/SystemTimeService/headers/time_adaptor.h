@@ -11,13 +11,10 @@
 #include <string>
 #include <tuple>
 
-namespace com
-{
-namespace system
-{
+namespace com {
+namespace system {
 
-class time_adaptor
-{
+class time_adaptor {
    public:
     static constexpr const char *INTERFACE_NAME = "com.system.time";
 
@@ -31,8 +28,7 @@ class time_adaptor
 
     ~time_adaptor() = default;
 
-    void registerAdaptor()
-    {
+    void registerAdaptor() {
         m_object
             .addVTable(
                 sdbus::registerMethod("GetSystemTime")
